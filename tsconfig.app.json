@@ -6,6 +6,11 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    /* Adicione estas três linhas */// Define a raiz para caminhos absolutos
+    "paths": {
+      "@/*": ["./src/*"] // Mapeia o atalho @/ para o diretório src/
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
