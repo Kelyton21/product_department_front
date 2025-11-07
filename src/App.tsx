@@ -2,8 +2,8 @@ import { Button } from "./components/ui/button"
 import { Search,PlusCircle } from 'lucide-react';
 import { Input } from "./components/ui/input"
 import { Table,TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table"
-import { Dialog,DialogContent, DialogDescription,DialogHeader, DialogTitle, DialogTrigger } from "./components/ui/dialog";
-import { Label } from "@radix-ui/react-label";
+import { Dialog,DialogClose,DialogContent, DialogDescription,DialogFooter,DialogHeader, DialogTitle, DialogTrigger } from "./components/ui/dialog";
+import { Label } from "./components/ui/label";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./components/ui/select";
 
 
@@ -16,7 +16,7 @@ function App() {
             <form className="flex items-center justify-between gap-3">
               <Input name="id" placeholder="ID do produto" className="w-auto"></Input>
               <Input name="name" placeholder="Nome do produto" className="w-auto"></Input>
-              <Button type="submit" variant="outline"><Search/>Buscar</Button>
+              <Button type="submit" ><Search/>Buscar</Button>
             </form>
             <Dialog>
               <DialogTrigger asChild>  
@@ -42,7 +42,7 @@ function App() {
 
                   <div className="grid grid-cols-4 items-center text-left gap-3">
                     <Label htmlFor="departamento">Departamento</Label>
-                    <Select>
+                    <Select name="departamento">
                       <SelectTrigger className="w-[230px]">
                         <SelectValue placeholder="Selecione um Departamento" />
                       </SelectTrigger>
@@ -63,7 +63,12 @@ function App() {
                       </SelectContent>
                     </Select>
                   </div>
-
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button type="submit" className="bg-red-600 font-bold hover:bg-red-700 ">Cancelar</Button>
+                    </DialogClose>
+                    <Button type="submit" className="bg-green-600 font-bold hover:bg-green-700 ">Salvar</Button>
+                  </DialogFooter>
                 </form>
               </DialogContent>
             </Dialog>
